@@ -17,7 +17,9 @@ export const userSlice = createSlice({
 
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts.pending, state => (state.isLoading = true))
+      .addCase(fetchContacts.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.items = payload;
         state.error = null;
@@ -27,7 +29,9 @@ export const userSlice = createSlice({
         state.error = payload;
         state.isLoading = false;
       })
-      .addCase(addContact.pending, state => (state.isLoading = true))
+      .addCase(addContact.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(addContact.fulfilled, (state, { payload }) => {
         state.items.push(payload);
         state.error = null;
@@ -37,7 +41,9 @@ export const userSlice = createSlice({
         state.error = payload;
         state.isLoading = false;
       })
-      .addCase(deleteContact.pending, state => (state.isLoading = true))
+      .addCase(deleteContact.pending, state => {
+        state.isLoading = true;
+      })
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
         state.items = state.items.filter(contact => contact.id !== payload.id);
         state.error = null;
