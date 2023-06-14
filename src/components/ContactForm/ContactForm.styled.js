@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 
-export const Container = styled.div`
-  max-width: 1170px;
+export const ContainerCustom = styled(Container)`
+  max-width: 600px;
   margin: 0 auto;
   padding: 15px 15px;
 `;
@@ -33,4 +34,10 @@ export const Button = styled.button`
     transform: scale(1.05);
     background-color: #c0c9d8;
   }
+`;
+
+export const SpinStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
