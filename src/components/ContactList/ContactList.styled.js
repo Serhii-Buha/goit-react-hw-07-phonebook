@@ -34,7 +34,7 @@ export const Button = styled.button`
 
   padding: 5px 10px;
   margin-left: auto;
-  margin-right: 65%;
+  /* margin-right: 65%; */
 
   font-size: 14px;
   border: none;
