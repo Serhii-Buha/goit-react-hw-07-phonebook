@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { Button } from './ContactForm.styled';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { nanoid } from 'nanoid';
-
-import { addUser } from 'redux/users/userSlice';
 import { getUsers } from 'redux/users/userSelectors';
+import { addContact } from 'redux/users/operations';
 
 export const ContactForm = () => {
   const [user, setUser] = useState({ name: '', number: '' });
@@ -22,10 +20,9 @@ export const ContactForm = () => {
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const ContactId = nanoid();
 
     const contact = {
-      id: ContactId,
+      // id: nanoid(),
       name: user.name,
       number: user.number,
     };
@@ -37,7 +34,8 @@ export const ContactForm = () => {
       alert(`${user.number} is already in contacts.`);
       return;
     }
-    dispatch(addUser(contact));
+
+    dispatch(addContact(contact));
     resetForm();
   };
 
